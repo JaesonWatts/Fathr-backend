@@ -29,15 +29,15 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: fathr_backend
+  username: <%= ENV['DB_USERNAME'] %>
 
   # The password associated with the postgres role (username).
-  #password:
+  password: <%= ENV['FATHR_BACKEND_API_DATABASE_PASSWORD'] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  #host: localhost
+  host: "10.0.0.236"
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
@@ -55,9 +55,9 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: fathr_backend_test
+# test:
+#   <<: *default
+#   database: fathr_backend_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -78,8 +78,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: fathr_backend_production
-  username: fathr_backend
-  password: <%= ENV['FATHR_BACKEND_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: fathr_backend_production
+#   username: fathr_backend
+#   password: <%= ENV['FATHR_BACKEND_DATABASE_PASSWORD'] %>
